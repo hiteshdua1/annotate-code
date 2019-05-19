@@ -4,23 +4,23 @@ This is a demo to explain code , and make it interactive , which can be used to 
 
 ### Todo:
 
-[ ] Make code playground - Static as of now
+- [ ] Make code playground - Static as of now
 
-[ ] Make an annotate-code service
+- [ ] Make an annotate-code service
 
-[ ] Connect the service to a db
+- [ ] Connect the service to a db
 
-[ ] Combine the annotate-code service with the code playground
+- [ ] Combine the annotate-code service with the code playground
 
-[ ] Make an Admin dashboard to annotate code
+- [ ] Make an Admin dashboard to annotate code
 
-[ ] Make code playground dynamic and compile at run time along with the code
+- [ ] Make code playground dynamic and compile at run time along with the code
 
-[ ] Deploy it - Heroku
+- [ ] Deploy it - Heroku
 
-[ ] If Stable - Deploy it to custom server
+- [ ] If Stable - Deploy it to custom server
 
-[ ] Dockerize it
+- [ ] Dockerize it
 
-[ ] Add testing suit with hiteshdua1/element-testing repo
+- [ ] Add testing suit with hiteshdua1/element-testing repo
 
