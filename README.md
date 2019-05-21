@@ -6,7 +6,9 @@ This is a demo to explain code , and make it interactive , which can be used to 
 
 - [ ] Make code playground - Static as of now
 
-- [ ] Make an annotate-code service
+- [ ] Integrate Markdown Renderer in React
+
+- [ ] Make an annotate-code service - can use introjs 
 
 - [ ] Connect the service to a db
 
