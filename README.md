@@ -7,8 +7,8 @@ This is a demo to explain code , and make it interactive , which can be used to 
 - [ ] Make code playground - Static cd ..
  of now
 
-- [ ] Integrate Markdown Renderer in React
-    https://github.com/rexxars/react-markdown
+- [x] Integrate Markdown Renderer in React
+    https://github.com/markedjs/marked + highlightjs for code colouring
 
 - [ ] Make an annotate-code service - can use introjs 
 
