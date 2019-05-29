@@ -13,8 +13,6 @@ class MarkdownRenderer extends Component {
     };
   }
 
-
-  
   async componentDidMount() {
     const response = await fetch(markdownFilePath);
     const markdownData = await response.text();
@@ -48,6 +46,5 @@ class MarkdownRenderer extends Component {
     return <div dangerouslySetInnerHTML={{__html: markdownText}} />
   }
 }
-
 
 export default MarkdownRenderer;

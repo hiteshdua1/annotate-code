@@ -20,4 +20,4 @@ storiesOf('Button', module)
   ));
 
 storiesOf('MarkdownRenderer', module)
-  .add('with markdown text', () => <MarkdownRenderer/>);
+  .add('Rendered Text', () => <MarkdownRenderer/>);
