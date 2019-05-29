@@ -5,19 +5,17 @@ import 'highlightjs/styles/tomorrow-night-eighties.css'
 const markdownFilePath = require('../markdown-files/hello-world.md');
 
 class MarkdownRenderer extends Component {
-  async getMarkdownText() {
-    // const markdownData = " "+
-    //   "> hello world \n" +
-    //   "```javascript \n" +
-    //   "  let name = 'Hitesh Dua' \n" +
-    //   "  const age = 25; \n" +
-    //   "  function Job() { \n" +
-    //   "    return 'Senior Software Engineer`; \n" +
-    //   "  } \n" +
-    //   "``` \n" +
-    //   "- Todo a lot of work \n" +
-    //   "- [ ] Not done this work \n" +
-    //   "- [x] This work is done";
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      markdownText: null,
+    };
+  }
+
+
+  
+  async componentDidMount() {
     const response = await fetch(markdownFilePath);
     const markdownData = await response.text();
     debugger;
@@ -25,7 +23,6 @@ class MarkdownRenderer extends Component {
     var rawMarkup = marked(markdownData, {
       renderer: new marked.Renderer(),
       highlight: (code, language) => {
-        debugger
         return hljs.highlightAuto(code).value;
         // return language
         // ? hljs.highlight(language, code).value
@@ -45,7 +42,7 @@ class MarkdownRenderer extends Component {
       markdownText: rawMarkup
     })
   }
-  getMarkdownText()
+
   render() {
     const { markdownText } = this.state;
     return <div dangerouslySetInnerHTML={{__html: markdownText}} />
