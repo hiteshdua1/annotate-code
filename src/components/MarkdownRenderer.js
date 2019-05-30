@@ -3,6 +3,7 @@ import marked from 'marked';
 import * as hljs from 'highlightjs';
 import 'highlightjs/styles/tomorrow-night-eighties.css'
 const markdownFilePath = require('../markdown-files/hello-world.md');
+import { appConfig } from '../config/app.config';
 
 class MarkdownRenderer extends Component {
   constructor(props) {
@@ -16,8 +17,7 @@ class MarkdownRenderer extends Component {
   async componentDidMount() {
     const response = await fetch(markdownFilePath);
     const markdownData = await response.text();
-    debugger;
-
+    
     var rawMarkup = marked(markdownData, {
       renderer: new marked.Renderer(),
       highlight: (code, language) => {
@@ -26,14 +26,7 @@ class MarkdownRenderer extends Component {
         // ? hljs.highlight(language, code).value
         // : hljs.highlightAuto(code).value
       },
-      pedantic: false,
-      gfm: true,
-      tables: true,
-      breaks: false,
-      sanitize: false,
-      smartLists: true,
-      smartypants: false,
-      xhtml: false
+      ...appConfig.marked
     });
 
     this.setState({
