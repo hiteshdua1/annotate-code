@@ -33,7 +33,7 @@ class MarkdownRenderer extends Component {
 
   render() {
     const { markdownText } = this.state;
-    return <div dangerouslySetInnerHTML={{__html: markdownText}} />
+    return <div className="App-intro" dangerouslySetInnerHTML={{__html: markdownText}} />
   }
 }
 

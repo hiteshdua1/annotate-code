@@ -23,8 +23,10 @@
 
 .App-intro {
   font-size: large;
+  padding: 4em 1em;
+  margin: 0 auto;
+  max-width: 50em;
 }
-
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
