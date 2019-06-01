@@ -22,9 +22,6 @@ class MarkdownRenderer extends Component {
       renderer: new marked.Renderer(),
       highlight: (code, language) => {
         return hljs.highlightAuto(code).value;
-        // return language
-        // ? hljs.highlight(language, code).value
-        // : hljs.highlightAuto(code).value
       },
       ...appConfig.marked
     });

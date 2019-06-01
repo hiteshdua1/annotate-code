@@ -4,7 +4,7 @@ This is a demo to explain code , and make it interactive , which can be used to 
 
 ### Todo:
 
-- [ ] Make code playground - Static cd ..
+- [x] Make code playground - Static cd ..
  of now
 
 - [x] Integrate Markdown Renderer in React
