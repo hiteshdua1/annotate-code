@@ -3,7 +3,7 @@ import marked from 'marked';
 import * as hljs from 'highlightjs';
 import 'highlightjs/styles/tomorrow-night-eighties.css'
 const markdownFilePath = require('../markdown-files/hello-world.md');
-import { appConfig } from '../config/app.config';
+import { appConfig } from '../../config/app.config';
 
 class MarkdownRenderer extends Component {
   constructor(props) {
