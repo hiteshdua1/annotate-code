@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './bootstrap.min.css'
 import MarkdownRenderer from './components/MarkdownRenderer';
 
 class App extends Component {
