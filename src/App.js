@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import './bootstrap.min.css'
 import MarkdownRenderer from './components/MarkdownRenderer';
+const markdownFilePath = require('./markdown-files/hello-world.md');
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Optimizing life towards O(1)</h2>
         </div>
-        <MarkdownRenderer/>
+        <MarkdownRenderer markdownFilePath={markdownFilePath}/>
       </div>
     );
   }

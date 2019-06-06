@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import marked from 'marked';
 import * as hljs from 'highlightjs';
 import 'highlightjs/styles/tomorrow-night-eighties.css'
-const markdownFilePath = require('../markdown-files/hello-world.md');
 import { appConfig } from '../../config/app.config';
 
 class MarkdownRenderer extends Component {
@@ -15,7 +14,7 @@ class MarkdownRenderer extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch(markdownFilePath);
+    const response = await fetch(this.props.markdownFilePath);
     const markdownData = await response.text();
     
     var rawMarkup = marked(markdownData, {
