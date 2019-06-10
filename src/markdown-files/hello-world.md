@@ -142,10 +142,12 @@ int rangeBitwiseAnd(int m, int n) {
     return m<<a; 
 }
 ```
-Number of 1 Bits
-Write a function that takes an unsigned integer and returns the number of ’1' bits it has (also known as the Hamming weight).
+
+#### Number of 1 Bits
+> Write a function that takes an unsigned integer and returns the number of ’1' bits it has (also known as the Hamming weight).
 
 Solution
+```
 int hammingWeight(uint32_t n) {
 	int count = 0;
 	while(n) {
@@ -154,6 +156,8 @@ int hammingWeight(uint32_t n) {
 	}
 	return count;
 }
+```
+```
 int hammingWeight(uint32_t n) {
     ulong mask = 1;
     int count = 0;
@@ -163,14 +167,19 @@ int hammingWeight(uint32_t n) {
     }
     return count;
 }
-Application
+```
+#### Application
 Repeated DNA Sequences
+
 All DNA is composed of a series of nucleotides abbreviated as A, C, G, and T, for example: "ACGAATTCCG". When studying DNA, it is sometimes useful to identify repeated sequences within the DNA. Write a function to find all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule.
 For example,
-Given s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT",
-Return: ["AAAAACCCCC", "CCCCCAAAAA"].
+
+Given `s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"`,
+
+Return: `["AAAAACCCCC", "CCCCCAAAAA"]`.
 
 Solution
+```
 class Solution {
 public:
     vector<string> findRepeatedDnaSequences(string s) {
@@ -187,12 +196,14 @@ public:
         return v;
     }
 };
+```
 But the above solution can be invalid when repeated sequence appears too many times, in which case we should use unordered_map<int, int> keyMap to replace char keyMap[1<<21]{0}here.
 
-Majority Element
-Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. (bit-counting as a usual way, but here we actually also can adopt sorting and Moore Voting Algorithm)
+#### Majority Element
+> Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. (bit-counting as a usual way, but here we actually also can adopt sorting and Moore Voting Algorithm)
 
 Solution
+```
 int majorityElement(vector<int>& nums) {
     int len = sizeof(int)*8, size = nums.size();
     int count = 0, mask = 1, ret = 0;
@@ -205,10 +216,13 @@ int majorityElement(vector<int>& nums) {
     }
     return ret;
 }
-Single Number III
-Given an array of integers, every element appears three times except for one. Find that single one. (Still this type can be solved by bit-counting easily.) But we are going to solve it by digital logic design
+```
+
+#### Single Number III
+> Given an array of integers, every element appears three times except for one. Find that single one. (Still this type can be solved by bit-counting easily.) But we are going to solve it by digital logic design
 
 Solution
+```
 //inspired by logical circuit design and boolean algebra;
 //counter - unit of 3;
 //current   incoming  next
@@ -230,31 +244,36 @@ int singleNumber(vector<int>& nums) {
         a = t;
     }
     return a | b;
-}
-;
-Maximum Product of Word Lengths
-Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower case letters. If no such two words exist, return 0.
+};
+```
 
+#### Maximum Product of Word Lengths
+> Given a string array words, find the maximum value of length(word[i]) * length(word[j]) where the two words do not share common letters. You may assume that each word will contain only lower case letters. If no such two words exist, return 0.
+```
 Example 1:
 Given ["abcw", "baz", "foo", "bar", "xtfn", "abcdef"]
 Return 16
 The two words can be "abcw", "xtfn".
-
+```
+```
 Example 2:
 Given ["a", "ab", "abc", "d", "cd", "bcd", "abcd"]
 Return 4
 The two words can be "ab", "cd".
-
+```
+```
 Example 3:
 Given ["a", "aa", "aaa", "aaaa"]
 Return 0
 No such pair of words.
-
+```
 Solution
+
 Since we are going to use the length of the word very frequently and we are to compare the letters of two words checking whether they have some letters in common:
 
 using an array of int to pre-store the length of each word reducing the frequently measuring process;
 since int has 4 bytes, a 32-bit type, and there are only 26 different letters, so we can just use one bit to indicate the existence of the letter in a word.
+```
 int maxProduct(vector<string>& words) {
     vector<int> mask(words.size());
     vector<int> lens(words.size());
@@ -269,17 +288,19 @@ int maxProduct(vector<string>& words) {
     }
     return result;
 }
-Attention
-result after shifting left(or right) too much is undefined
-right shifting operations on negative values are undefined
-right operand in shifting should be non-negative, otherwise the result is undefined
-The & and | operators have lower precedence than comparison operators
-Sets
-All the subsets
-A big advantage of bit manipulation is that it is trivial to iterate over all the subsets of an N-element set: every N-bit value represents some subset. Even better, if A is a subset of B then the number representing A is less than that representing B, which is convenient for some dynamic programming solutions.
+```
+#### Attention
+- result after shifting left(or right) too much is undefined
+- right shifting operations on negative values are undefined
+- right operand in shifting should be non-negative, otherwise the result is undefined
+- The & and | operators have lower precedence than comparison operators
+- Sets
+- All the subsets
+> A big advantage of bit manipulation is that it is trivial to iterate over all the subsets of an N-element set: every N-bit value represents some subset. Even better, if A is a subset of B then the number representing A is less than that representing B, which is convenient for some dynamic programming solutions.
 
 It is also possible to iterate over all the subsets of a particular subset (represented by a bit pattern), provided that you don’t mind visiting them in reverse order (if this is problematic, put them in a list as they’re generated, then walk the list backwards). The trick is similar to that for finding the lowest bit in a number. If we subtract 1 from a subset, then the lowest set element is cleared, and every lower element is set. However, we only want to set those lower elements that are in the superset. So the iteration step is just i = (i - 1) & superset.
 
+```
 vector<vector<int>> subsets(vector<int>& nums) {
     vector<vector<int>> vv;
     int size = nums.size(); 
@@ -292,12 +313,14 @@ vector<vector<int>> subsets(vector<int>& nums) {
     }
     return vv;
 }
+```
 Actually there are two more methods to handle this using recursion and iteration respectively.
 
-Bitset
+#### Bitset
 A bitset stores bits (elements with only two possible values: 0 or 1, true or false, ...).
-The class emulates an array of bool elements, but optimized for space allocation: generally, each element occupies only one bit (which, on most systems, is eight times less than the smallest elemental type: char).
+The class    emulates an array of bool elements, but optimized for space allocation: generally, each element occupies only one bit (which, on most systems, is eight times less than the smallest elemental type: char).
 
+```
 // bitset::count
 #include <iostream>       // std::cout
 #include <string>         // std::string
@@ -310,3 +333,4 @@ int main () {
   std::cout << (foo.size()-foo.count()) << " zeros.\n";
   return 0;
 }
+```
